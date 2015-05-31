@@ -1,7 +1,0 @@
-<uwsgi>
-	<socket>106.186.29.228:8001</socket>
-	<chdir>/home/chen/DjangoProjects/my_blog</chdir>
-	<module>my_blog_wsgi</module>
-	<processes>4</processes> 
-	<daemonize>/home/chen/DjangoProjects/my_blog/uwsgi.log</daemonize>
-</uwsgi>
