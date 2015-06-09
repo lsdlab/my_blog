@@ -1,20 +1,30 @@
 # -*- coding: utf-8 -*-
 
 """
-  (c) Copyright BreakWire 2015 All Rights Reserved
-  -----------------------------------------------------------------------------
-  File Name    : views.py
-  Description  : views functions for the app
-  Author       : Chen Jian
-  Gmail        : lsdvincent@gmail.com
-  GitHub       : http://github.com/lsdlab/my_blog
-  -----------------------------------------------------------------------------
+     _____  _   _   ____  _  __
+    |  ___|| | | | / ___|| |/ /
+    | |_   | | | || |    | ' / 
+    |  _|  | |_| || |___ | . \ 
+    |_|     \___/  \____||_|\_\
+                               
+     _____ __     __ _____  ____ __   __ ____    ___   ____ __   __
+    | ____|\ \   / /| ____||  _ \\ \ / /| __ )  / _ \ |  _ \\ \ / /
+    |  _|   \ \ / / |  _|  | |_) |\ V / |  _ \ | | | || | | |\ V / 
+    | |___   \ V /  | |___ |  _ <  | |  | |_) || |_| || |_| | | |  
+    |_____|   \_/   |_____||_| \_\ |_|  |____/  \___/ |____/  |_|  
+
+    (c) Copyright BreakWire 2015 All Rights Reserved
+    ---------------------------------------------------------------------------
+    File Name    : views.py
+    Description  : views functions for the app
+    Author       : Chen Jian
+    Gmail        : lsdvincent@gmail.com
+    GitHub       : http://github.com/lsdlab/my_blog
+    ---------------------------------------------------------------------------
 """
 
 
 from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-
 from django.http import Http404
 
 # paginator import
@@ -29,9 +39,10 @@ from article.models import *
 
 
 # Create your views here.
+# home tab
 def home(request):
     posts = Article.objects.all().order_by('-publish_time')
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)
@@ -42,6 +53,7 @@ def home(request):
     return render(request, 'home.html', {'post_list': post_list})
 
 
+# each post
 def detail(request, id):
     try:
         post = Article.objects.get(id=str(id))
@@ -51,6 +63,7 @@ def detail(request, id):
     return render(request, 'post.html', {'post': post, 'tags': tags})
 
 
+# archives tab
 def archives(request):
     try:
         post_list = Article.objects.all().order_by('-publish_time')
@@ -59,6 +72,7 @@ def archives(request):
     return render(request, 'archives.html', {'post_list': post_list})
 
 
+# category
 def category(request, category_filter):
     try:
         post_list = Article.objects.filter(category__iexact=category_filter)
@@ -67,22 +81,26 @@ def category(request, category_filter):
     return render(request, 'category.html', {'post_list': post_list})
 
 
+# about tab
 def about(request):
     return render(request, 'about.html')
 
 
+# project tab
 def project(request):
     return render(request, 'project.html')
 
 
+# resume tab
 def resume(request):
     return render(request, 'resume.html')
 
 
+# RSS Subscription
 class RSSFeed(Feed) :
-    title = "陈坚的博客 RSS 订阅"
+    title = "BreakWire RSS Subscription"
     link = "feed/post/"
-    description = "陈坚的博客 RSS 订阅"
+    description = "BreakWire RSS Subscription"
 
     def items(self):
         return Article.objects.order_by('-publish_time')[:3]

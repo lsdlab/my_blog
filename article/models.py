@@ -1,13 +1,28 @@
 # -*- coding: utf-8 -*-
 
 """
-  (c) Copyright BreakWire 2015 All Rights Reserved
-  -----------------------------------------------------------------------------
-  File Name    : models.py
-  Description  : define models for the core of this project
-  Author       : Chen Jian
+     _____  _   _   ____  _  __
+    |  ___|| | | | / ___|| |/ /
+    | |_   | | | || |    | ' / 
+    |  _|  | |_| || |___ | . \ 
+    |_|     \___/  \____||_|\_\
+                               
+     _____ __     __ _____  ____ __   __ ____    ___   ____ __   __
+    | ____|\ \   / /| ____||  _ \\ \ / /| __ )  / _ \ |  _ \\ \ / /
+    |  _|   \ \ / / |  _|  | |_) |\ V / |  _ \ | | | || | | |\ V / 
+    | |___   \ V /  | |___ |  _ <  | |  | |_) || |_| || |_| | | |  
+    |_____|   \_/   |_____||_| \_\ |_|  |____/  \___/ |____/  |_|  
+
+    (c) Copyright BreakWire 2015 All Rights Reserved
+    ---------------------------------------------------------------------------
+    File Name    : models.py
+    Description  : define models for the core of this project
+    Author       : Chen Jian
+    Gmail        : lsdvincent@gmail.com
+    GitHub       : http://github.com/lsdlab/my_blog
   -----------------------------------------------------------------------------
 """
+
 
 from django.db import models
 
