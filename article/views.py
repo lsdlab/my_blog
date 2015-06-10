@@ -42,7 +42,7 @@ from article.models import *
 # home tab
 def home(request):
     posts = Article.objects.all().order_by('-publish_time')
-    paginator = Paginator(posts, 4)
+    paginator = Paginator(posts, 6)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)

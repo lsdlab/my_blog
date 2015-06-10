@@ -16,7 +16,7 @@
           目录：<a class="btn btn-xs btn-info" href="{% url 'category' post.category %}">{{ post.category | title}}</a>&nbsp&nbsp
           标签：
           {% for tag in post.tag.all %}
-            <a class="label label-primary" href="">{{ tag }}</a></p>
+            <a class="btn btn-xs btn-info" href="">{{ tag }}</a></p>
           {% endfor %}
         </p>
         <br />
