@@ -28,7 +28,7 @@
 from django.contrib import admin
 
 from article.models import Tag
-from article models import Article
+from article.models import Article
 
 
 # Register your models here.
