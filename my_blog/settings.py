@@ -21,11 +21,9 @@
     Author       : Chen Jian
     Gmail        : lsdvincent@gmail.com
     GitHub       : http://github.com/lsdlab/my_blog
-    ---------------------------------------------------------------------------  
-"""
+    --------------------------------------------------------------------------- 
 
 
-"""
 Django settings for my_blog project.
 
 For more information on this file, see

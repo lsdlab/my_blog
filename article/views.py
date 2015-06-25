@@ -36,7 +36,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.syndication.views import Feed
 
 # models import 
-from article.models import *
+from article.models import Tag
+from article models import Article
 
 
 # Create your views here.
