@@ -15,7 +15,3 @@
 ### 效果图：    
 2015-5-28 小改版：    
  ![image](http://cl.ly/image/2c3m1V0K1R2L/Screenshot%202015-05-28%2001.05.46.png)
-
-  
-  
-
