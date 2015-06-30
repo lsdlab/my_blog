@@ -1,6 +1,6 @@
 # my_blog    
 
-[![Build Status](https://travis-ci.org/lsdlab/my_blog.svg?branch=master)](https://travis-ci.org/lsdlab/my_blog)    
+[![Build Status](https://travis-ci.org/lsdlab/my_blog.svg?branch=master)](https://travis-ci.org/lsdlab/my_blog)    [![Code Health](https://landscape.io/github/lsdlab/my_blog/master/landscape.svg?style=flat)](https://landscape.io/github/lsdlab/my_blog/master)    
 
 ### blog based on Django Framework    
 实现基本功能，分类，标签，发布、更新时间自动设置为当前，Mardown 渲染，本地写作，复制标题（必须）、分类（必须）、标签（非必需）、文章内容至后台保存更新。    
