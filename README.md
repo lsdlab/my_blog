@@ -1,6 +1,6 @@
 # my_blog    
 
-[![Build Status](https://travis-ci.org/lsdlab/my_blog.svg?branch=master)](https://travis-ci.org/lsdlab/my_blog)    [![Code Health](https://landscape.io/github/lsdlab/my_blog/master/landscape.svg?style=flat)](https://landscape.io/github/lsdlab/my_blog/master)    
+[![Build Status](https://travis-ci.org/lsdlab/my_blog.svg?branch=master)](https://travis-ci.org/lsdlab/my_blog)
 
 ### Personal blog based on Django Framework
 实现基本功能，RSS 订阅功能，分类，标签，发布、更新时间设置为当前，Mardown 渲染，本地写作，复制标题（必须）、分类（必须）、标签（非必需）、文章内容至后台保存更新。
@@ -11,7 +11,7 @@
  * 后台富文本编辑器
  
 ### Bugfix:
- * 图床贴图过大直接错乱
+* 图床贴图过大直接错乱
 *  代码长度超过80个字符（无法形容……）
  
 ### 效果图：
