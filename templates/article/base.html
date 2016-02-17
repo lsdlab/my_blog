@@ -1,148 +1,112 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-
+<!DOCTYPE html> {% load staticfiles %}
 <html lang="zh-cn">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Chen Jian's Blog based on Django Framework">
     <meta name="author" content="Chen Jian">
-    <link rel="icon" href="{{ STATIC_URL }}favicon.png">
-
-    {% block pagetitle %}
+    <link rel="icon" href="{{ STATIC_URL }}favicon.png"> {% block pagetitle %}
     <title>NO MAN'S LAND</title>
     {% endblock %}
-    
-    <!-- Loading Bootstrap -->
-    <link href="{{ STATIC_URL }}Flat-UI-dist/css/vendor/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Loading Flat UI -->
-    <link href="{{ STATIC_URL }}Flat-UI-dist/css/flat-ui.min.css" rel="stylesheet">
-    
-    <!-- loading customisr css -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/flat-ui.min.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/blog.min.css" rel="stylesheet">
+</head>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-53639071-3', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-  </head>
-
-  <body>
+<body>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-                <span class="sr-only">Toggle navigation</span>
-              </button>
-              <a class="navbar-brand" href="{% url 'home' %}">NO MAN'S LAND</a>
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'home' %}">NO MAN'S LAND</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档 & 关于<span class="navbar-unread">1</span><b class="caret"></b></a>
+                                <span class="dropdown-arrow"></span>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'archives' %}">归档</a></li>
+                                    <li><a href="{% url 'about' %}">关于</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">项目 & 简历<span class="navbar-unread">1</span><b class="caret"></b></a>
+                                <span class="dropdown-arrow"></span>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'project' %}">项目</a></li>
+                                    <li><a href="{% url 'resume' %}">简历</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'RSS' %}">RSS</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+                <!-- /navbar -->
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-01">
-              <ul class="nav navbar-nav navbar-left">
-
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档 & 关于<span class="navbar-unread">1</span><b class="caret"></b></a>
-                  <span class="dropdown-arrow"></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="{% url 'archives' %}">归档</a></li>
-                    <li><a href="{% url 'about' %}">关于</a></li>
-                  </ul>
-                </li>
-
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">项目 & 简历<span class="navbar-unread">1</span><b class="caret"></b></a>
-                  <span class="dropdown-arrow"></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="{% url 'project' %}">项目</a></li>
-                    <li><a href="{% url 'resume' %}">简历</a></li>
-                  </ul>
-                </li>
-                <li><a href="{% url 'RSS' %}">RSS</a></li>
-               </ul>
-               <form class="navbar-form navbar-right" action="#" role="search">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn"><span class="fui-search"></span></button>
-                    </span>
-                  </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title">NO MAN'S LAND</h1>
+            <p class="lead blog-description">Too fast to live, too young to die</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 blog-main">
+                <div>
+                    {% block content %} {% endblock %}
                 </div>
-              </form>
-            </div><!-- /.navbar-collapse -->
-          </nav><!-- /navbar -->
+            </div>
+            <!-- /.blog-main -->
         </div>
-      </div> <!-- /row -->
-    </div> <!-- /container -->
-
-    <div class="container">
-      <div class="blog-header">
-        <h1 class="blog-title">NO MAN'S LAND</h1>
-        <p class="lead blog-description">Too fast to live, too young to die</p>
-      </div>
+        <!-- /.row -->
     </div>
-      
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12 blog-main">
-          <div>
-            {% block content %}
-            {% endblock %}
-          </div>
-        </div><!-- /.blog-main -->
-      </div><!-- /.row -->
-    </div>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="sidebar-module sidebar-module-inset">
-            <h4>Contact ME</h4>
-            <p><span class="fui-mail"></span> Gmail: <a href="mailto: lsdincent@gmail.com">lsdvincent@gmail.com</a></p>
-            <p><span class="fui-apple"></span> iMessage: lsdlab@icloud.com</p>
-            <p><span class="fui-chat"></span> Telegram: lsdvincent</p>
-          </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>Contact ME</h4>
+                    <p><span class="fui-mail"></span> Gmail: <a href="mailto: lsdincent@gmail.com">lsdvincent@gmail.com</a></p>
+                    <p><span class="fui-apple"></span> iMessage: lsdlab@icloud.com</p>
+                    <p><span class="fui-chat"></span> Telegram: lsdvincent</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>Elsewhere</h4>
+                    <ol class="list-unstyled">
+                        <li><span class="fui-bookmark"></span> <a href="http://blog.breakwire.me" target="_blank">BreakWire</a></li>
+                        <li><span class="fui-github"></span> <a href="http://github.com/lsdlab" target="_blank">GitHub: lsdlab</a></li>
+                        <li><span class="fui-twitter"></span> <a href="http://twitter.com/lsdvincent" target="_blank">Twitter: lsdvincent</a></li>
+                        <li><span class="fui-instagram"></span> <a href="http://instagram.com/lsdvincent" target="_blank">Instagram: lsdvicent</a></li>
+                        <li><span class="fui-photo"></span> <a href="http://lsdvincent.vsco.co" target="_blank">VSCOcam: lsdvincent</a></li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div class="com-sm-6">
-          <div class="sidebar-module sidebar-module-inset">
-              <h4>Elsewhere</h4>
-              <ol class="list-unstyled">
-                <li><span class="fui-bookmark"></span> <a href="http://blog.breakwire.me" target="_blank">BreakWire</a></li>
-                <li><span class="fui-github"></span> <a href="http://github.com/lsdlab" target="_blank">GitHub: lsdlab</a></li>
-                <li><span class="fui-twitter"></span> <a href="http://twitter.com/lsdvincent" target="_blank">Twitter: lsdvincent</a></li>
-                <li><span class="fui-instagram"></span> <a href="http://instagram.com/lsdvincent" target="_blank">Instagram: lsdvicent</a></li>
-                <li><span class="fui-photo"></span> <a href="http://lsdvincent.vsco.co" target="_blank">VSCOcam: lsdvincent</a></li>
-              </ol>
-          </div>
-        </div>
-      </div><!-- /.row -->
+        <!-- /.row -->
     </div>
-
-    
-
-
     <footer class="blog-footer">
-      <p>&copy; BreakWire 2014-2015</p>
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>Modified with <a href="http://designmodo.github.io/Flat-UI/">Flat-UI</a> by <a href="https://twitter.com/lsdvincent">@lsdvincent</a>. </p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer><!-- /.footer -->
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <p>&copy; BreakWire 2014-2015</p>
+        <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>Modified with <a href="http://designmodo.github.io/Flat-UI/">Flat-UI</a> by <a href="https://twitter.com/lsdvincent">@lsdvincent</a>. </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <!-- /.footer -->
     <script type="text/javascript" src={{ STATIC_URL }}js/jquery-2.1.3.min.js></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src={{ STATIC_URL }}js/bootstrap.min.js></script>
-  </body>
-</html>
+</body>
 
+</html>
