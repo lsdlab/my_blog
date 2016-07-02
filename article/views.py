@@ -3,15 +3,15 @@
 """
      _____  _   _   ____  _  __
     |  ___|| | | | / ___|| |/ /
-    | |_   | | | || |    | ' / 
-    |  _|  | |_| || |___ | . \ 
+    | |_   | | | || |    | ' /
+    |  _|  | |_| || |___ | . \
     |_|     \___/  \____||_|\_\
-                               
+
      _____ __     __ _____  ____ __   __ ____    ___   ____ __   __
     | ____|\ \   / /| ____||  _ \\ \ / /| __ )  / _ \ |  _ \\ \ / /
-    |  _|   \ \ / / |  _|  | |_) |\ V / |  _ \ | | | || | | |\ V / 
-    | |___   \ V /  | |___ |  _ <  | |  | |_) || |_| || |_| | | |  
-    |_____|   \_/   |_____||_| \_\ |_|  |____/  \___/ |____/  |_|  
+    |  _|   \ \ / / |  _|  | |_) |\ V / |  _ \ | | | || | | |\ V /
+    | |___   \ V /  | |___ |  _ <  | |  | |_) || |_| || |_| | | |
+    |_____|   \_/   |_____||_| \_\ |_|  |____/  \___/ |____/  |_|
 
 
     (c) Copyright BreakWire 2015 All Rights Reserved
@@ -31,11 +31,11 @@ from django.http import Http404
 # paginator import
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# RSS feed import  
+# RSS feed import
 from django.core.urlresolvers import reverse
 from django.contrib.syndication.views import Feed
 
-# models import 
+# models import
 from article.models import Tag
 from article.models import Article
 
@@ -99,7 +99,7 @@ def resume(request):
 
 
 # RSS Subscription
-class RSSFeed(Feed) :
+class RSSFeed(Feed):
     title = "BreakWire RSS Subscription"
     link = "feed/post/"
     description = "BreakWire RSS Subscription"
@@ -115,6 +115,6 @@ class RSSFeed(Feed) :
 
     def item_description(self, item):
         return item.content
-    
+
     def item_link(self, item):
         return reverse('detail', args=[item.id])
